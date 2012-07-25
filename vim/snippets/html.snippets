@@ -1,0 +1,36 @@
+snippet script
+	<script type="text/javascript" charset="utf-8">
+		// <![CDATA[
+		${1}
+		// ]]>
+	</script>${2}
+snippet input
+	<input type="${1:text/submit/hidden/button}" id="${2:some_id}" name="${3:$2}" value="${4}" />${5}
+snippet skel
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+		<head>
+			<meta http-equiv="Content-type" content="text/html; charset=iso-18859-1" />
+			<title>${1:title}</title>
+		</head>
+		<body>
+
+			${2:content}
+
+		</body>
+	</html>
+snippet start
+	<!-- [START] ${1:thing} -->
+snippet end
+	<!-- [ END ] ${1:thing} -->
+snippet ifie
+	<!--[if IE]>
+		${1:IE Conditional Comment: Internet Explorer only}
+	<![endif]-->
+snippet ifie6
+	<!--[if IE 6]>
+		${1:IE Conditional Comment: Internet Explorer 6 only}
+	<![endif]-->
+snippet scriptsrcg
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/${1:1.7.2}/jquery.min.js" type="text/javascript" charset="utf-8"></script>

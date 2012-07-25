@@ -1,0 +1,237 @@
+set nocompatible
+
+set iskeyword+=$,@,%,# "none of these should be word dividers, so make them not be
+
+filetype off
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
+syntax on
+filetype on
+filetype plugin indent on
+
+set number
+set lazyredraw
+set backspace=2
+
+set noignorecase
+set shiftround
+set completeopt=menu
+
+set autoindent
+set expandtab
+set softtabstop=4
+set shiftwidth=4
+set tabstop=4
+
+set showmatch
+set matchtime=5
+set scrolloff=5
+set visualbell
+
+" Allow buffer switching without a write
+set hidden
+
+set novb
+
+" Code folding defaults
+set nofoldenable
+set foldmethod=indent
+set foldnestmax=10
+
+" Relative line numbering
+set nu
+
+set diffopt=filler,context:3,vertical
+
+if has('gui_running')
+    set background=dark
+    colorscheme tomorrownight
+else
+    set t_Co=256
+    set background=dark
+    colorscheme tomorrownight
+endif
+
+set guifont=Inconsolata\ 12
+
+" Turn off the icon toolbar
+set guioptions-=T
+
+" Turn on search highlighting
+set hls
+
+" Turn on incremental search highlighting
+set incsearch
+
+set cursorline
+set mousehide
+
+" Display invisible characters in :set list!
+:set listchars=tab:»·,trail:·
+
+" toggle colored right border after 80 chars
+set colorcolumn=81
+let s:color_column_old = 0
+
+" Setup for ack plugin
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+
+" Tracking variable so we can tell the user whether we're seeing non-printing
+" characters
+let s:non_printing_chars = 0
+
+" Mini Buffer explorer setup
+" Allow Ctrl+<vim movement keys> navigation of buffer window
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplCloseOnSelect = 1
+hi link MBEVisibleChanged Error
+
+" Powerline
+set laststatus=2 " Always show the statusline
+let g:Powerline_symbols = 'fancy'
+" MiniBufExplorer seems to hate powerline, resulting in a style-less status
+" line if you delete a buffer with the Buffer Explorer open. This will reload
+" powerline every time. Sigh.
+autocmd BufDelete * call Pl#Load()
+
+" CtrlP - Fuzzy finder. Uses 'matcher' (https://github.com/burke/matcher.git)
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:path_to_matcher    = '/usr/local/bin/matcher'
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . -co --exclude-standard']
+let g:ctrlp_match_func   = { 'match': 'GoodMatch' }
+
+function! GoodMatch(items, str, limit, mmode, ispath, crfile, regex)
+
+  " Create a cache file if not yet exists
+  let cachefile = ctrlp#utils#cachedir().'/matcher.cache'
+  if !( filereadable(cachefile) && a:items == readfile(cachefile) )
+    call writefile(a:items, cachefile)
+  endif
+  if !filereadable(cachefile)
+    return []
+  endif
+
+  " a:mmode is currently ignored. In the future, we should probably do
+  " something about that. the matcher behaves like 'full-line'.
+  let cmd = g:path_to_matcher.' --limit '.a:limit.' --manifest '.cachefile.' '
+  if !( exists('g:ctrlp_dotfiles') && g:ctrlp_dotfiles )
+    let cmd = cmd.'--no-dotfiles '
+  endif
+  let cmd = cmd.a:str
+
+  return split(system(cmd), "\n")
+
+endfunction
+
+" FUNCTIONS ====================================================================
+" Allow toggling between 4 and 2 tabstops. Thank you, Ruby.
+function! TabToggle()
+  if &shiftwidth =~ 4
+    echo "Setting tabstop to 2"
+    set shiftwidth=2
+    set softtabstop=2
+    set tabstop=2
+  else
+    echo "Setting tabstop to 4"
+    set shiftwidth=4
+    set softtabstop=4
+    set tabstop=4
+  endif
+endfunction
+
+function! s:ToggleColorColumn()
+    if s:color_column_old == 0
+        let s:color_column_old = &colorcolumn
+        windo let &colorcolumn = 0
+    else
+        windo let &colorcolumn=s:color_column_old
+        let s:color_column_old = 0
+    endif
+endfunction
+
+function! ToggleRelativeNumber()
+    if &rnu
+        set nu
+    else
+        set rnu
+    endif
+endfunction
+
+function! ToggleSetList()
+    if s:non_printing_chars == 0
+        let s:non_printing_chars = 1
+        echo 'Non-printing characters VISIBLE'
+        :set list
+    else
+        let s:non_printing_chars = 0
+        echo 'Non-printing characters HIDDEN'
+        :set nolist
+    end
+endfunction
+
+" KEYBINDINGS ==================================================================
+" Time and date insertion
+:iab dts <C-R>=strftime("%a, %d %b %Y %H:%M:%S %z")<CR>
+
+" Tabs to spaces and trailing whitespace trimming
+map <F2> :retab<CR>:%s/[ ]\+$//g<CR>:set expandtab<CR>
+
+" Clear the previous search highlighting
+map <F3> :let @/ = ""<CR>
+
+" Show/Hide non-printing characters
+map <F4> :execute ToggleSetList()<CR>
+
+" TagBar
+nnoremap <silent> <F8> :TagbarToggle<CR>
+
+" Disable arrow keys so I can use the proper movement keys
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+nnoremap j gj
+nnoremap k gk
+
+" Stop hitting the ESC key all the time, numbnuts
+inoremap kj <esc>
+cnoremap kj <esc>
+vnoremap kj <esc>
+
+" Disable F1 Help and map it to ESC because you're a clumsy fuck
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+" Toggle between 2- and 4-character tabstops
+nmap <F9> mz:execute TabToggle()<CR>'z
+
+" Ack plugin call
+nmap <Leader>a <Esc>:Ack!
+
+" Open NERD Tree
+map <Leader>n :NERDTreeToggle<CR>
+
+" Toggle the 80 character column marker
+nnoremap <Leader>8 :call <SID>ToggleColorColumn()<CR>
+
+" Toggle between relative and absolute line numbering
+nnoremap <Leader>r :call ToggleRelativeNumber()<CR>
+
+" Open the buffer explorer
+map <Leader>b :TMiniBufExplorer<cr>
+
+" Tabular
+map <Leader>l :Tabularize /
+
+" Switch between various buffers
+map gb :bnext<CR>
+map gB :bprev<CR>
+
+" Automatically check for PHP syntax errors on file save
+:autocmd BufWritePost *.php !php -l <afile>
