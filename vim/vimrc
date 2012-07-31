@@ -46,11 +46,11 @@ set diffopt=filler,context:3,vertical
 
 if has('gui_running')
     set background=dark
-    colorscheme tomorrownight
+    colorscheme lucius
 else
     set t_Co=256
     set background=dark
-    colorscheme tomorrownight
+    colorscheme lucius
 endif
 
 set guifont=Inconsolata\ 12
