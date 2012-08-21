@@ -6,10 +6,12 @@ alias tmbro="tmux attach -t brochure"
 alias rmsvn="find . -name .svn -exec rm -rf {} \;"
 alias nyan="telnet miku.acm.uiuc.edu"
 
-# Clickatell kak
-alias smbdev="smbclient //dev01-cpt/webdev/ -U gregory.saunderson -W CLICKATELL"
+alias fixfuse="fusermount -zu ~/.gvfs;/usr/lib/gvfs/gvfs-fuse-daemon ~/.gvfs"
 
-alias sshdev="slogin -i ~/.ssh/clickatell dev01-cpt.internal.clickatell.com -l gregory.saunderson"
+# Clickatell kak
+alias smbdev="smbclient //dev04-cpt/webdev/ -U gregory.saunderson -W CLICKATELL"
+
+alias sshdev="slogin -i ~/.ssh/clickatell dev04-cpt.internal.clickatell.com -l gregory.saunderson"
 alias sshdev3="slogin -i ~/.ssh/clickatell dev03-cpt.internal.clickatell.com -l gregory.saunderson"
 
 alias sshstage1="slogin -i ~/.ssh/clickatell app1a-cpt.za03.clickatell.com -l gregory.saunderson"
@@ -55,13 +57,13 @@ alias gvimtags="gvim /home/greg/tags/;exit"
 alias gvimmarketing="gvim /home/greg/marketing/;exit"
 
 # SSHFS aliases
-alias mountdev="sshfs -o idmap=user gregory.saunderson@dev01-cpt:/var/www/subversion/dev ~/sshfs/dev"
-alias mounttrunk="sshfs -o idmap=user gregory.saunderson@dev01-cpt:/var/www/subversion/trunk ~/sshfs/trunk"
-alias mounttags="sshfs -o idmap=user gregory.saunderson@dev01-cpt:/var/www/subversion/tags ~/sshfs/tags"
-alias mountqa="sshfs -o idmap=user gregory.saunderson@dev01-cpt:/var/www/subversion/qa ~/sshfs/qa"
-alias mountmacoute="sshfs -o idmap=user gregory.saunderson@dev01-cpt:/var/www/subversion/macoute ~/sshfs/macoute"
-alias mountmacoute2="sshfs -o idmap=user gregory.saunderson@dev01-cpt:/var/www/subversion/macoute2 ~/sshfs/macoute2"
-alias mountmacoute3="sshfs -o idmap=user gregory.saunderson@dev01-cpt:/var/www/subversion/macoute3 ~/sshfs/macoute3"
+alias mountdev="sshfs -o idmap=user gregory.saunderson@dev04-cpt:/var/www/subversion/dev ~/sshfs/dev"
+alias mounttrunk="sshfs -o idmap=user gregory.saunderson@dev04-cpt:/var/www/subversion/trunk ~/sshfs/trunk"
+alias mounttags="sshfs -o idmap=user gregory.saunderson@dev04-cpt:/var/www/subversion/tags ~/sshfs/tags"
+alias mountqa="sshfs -o idmap=user gregory.saunderson@dev04-cpt:/var/www/subversion/qa ~/sshfs/qa"
+alias mountmacoute="sshfs -o idmap=user gregory.saunderson@dev04-cpt:/var/www/subversion/macoute ~/sshfs/macoute"
+alias mountmacoute2="sshfs -o idmap=user gregory.saunderson@dev04-cpt:/var/www/subversion/macoute2 ~/sshfs/macoute2"
+alias mountmacoute3="sshfs -o idmap=user gregory.saunderson@dev04-cpt:/var/www/subversion/macoute3 ~/sshfs/macoute3"
 alias mountbrochure="sshfs -o idmap=user gregory.saunderson@www-dev.clickatell.com:/var/www/brochure ~/sshfs/brochure"
 
 alias umountdev="fusermount -u ~/sshfs/dev"

@@ -53,7 +53,7 @@ else
     colorscheme lucius
 endif
 
-set guifont=Inconsolata\ 12
+set guifont=Cousine\ 11
 
 " Turn off the icon toolbar
 set guioptions-=T
