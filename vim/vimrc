@@ -89,11 +89,18 @@ hi link MBEVisibleChanged Error
 
 " Powerline
 set laststatus=2 " Always show the statusline
-let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
+let g:Powerline_symbols = 'unicode'
 " MiniBufExplorer seems to hate powerline, resulting in a style-less status
 " line if you delete a buffer with the Buffer Explorer open. This will reload
 " powerline every time. Sigh.
 autocmd BufDelete * call Pl#Load()
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_auto_jump=1
 
 " CtrlP - Fuzzy finder. Uses 'matcher' (https://github.com/burke/matcher.git)
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -234,4 +241,4 @@ map gb :bnext<CR>
 map gB :bprev<CR>
 
 " Automatically check for PHP syntax errors on file save
-:autocmd BufWritePost *.php !php -l <afile>
+" :autocmd BufWritePost *.php !php -l <afile>

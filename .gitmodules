@@ -31,3 +31,6 @@
 [submodule "vim/bundle/textobj-word-column"]
 	path = vim/bundle/textobj-word-column
 	url = git://github.com/coderifous/textobj-word-column.vim.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
