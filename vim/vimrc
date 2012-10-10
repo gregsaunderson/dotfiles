@@ -20,9 +20,9 @@ set completeopt=menu
 
 set autoindent
 set expandtab
-set softtabstop=4
-set shiftwidth=4
-set tabstop=4
+set softtabstop=2
+set shiftwidth=2
+set tabstop=2
 
 set showmatch
 set matchtime=5
@@ -46,14 +46,14 @@ set diffopt=filler,context:3,vertical
 
 if has('gui_running')
     set background=dark
-    colorscheme lucius
+    colorscheme solarized
 else
     set t_Co=256
     set background=dark
     colorscheme lucius
 endif
 
-set guifont=Cousine\ 11
+set guifont=Monaco\ 10
 
 " Turn off the icon toolbar
 set guioptions-=T
@@ -81,20 +81,10 @@ let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 " characters
 let s:non_printing_chars = 0
 
-" Mini Buffer explorer setup
-" Allow Ctrl+<vim movement keys> navigation of buffer window
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplCloseOnSelect = 1
-hi link MBEVisibleChanged Error
-
 " Powerline
 set laststatus=2 " Always show the statusline
 set encoding=utf-8
 let g:Powerline_symbols = 'unicode'
-" MiniBufExplorer seems to hate powerline, resulting in a style-less status
-" line if you delete a buffer with the Buffer Explorer open. This will reload
-" powerline every time. Sigh.
-autocmd BufDelete * call Pl#Load()
 
 " Syntastic
 set statusline+=%#warningmsg#
@@ -103,10 +93,10 @@ set statusline+=%*
 let g:syntastic_auto_jump=1
 
 " CtrlP - Fuzzy finder. Uses 'matcher' (https://github.com/burke/matcher.git)
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:path_to_matcher    = '/usr/local/bin/matcher'
-let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . -co --exclude-standard']
-let g:ctrlp_match_func   = { 'match': 'GoodMatch' }
+set runtimepath^=~/.vim/bundle/ctrlp
+" let g:path_to_matcher    = '/usr/local/bin/matcher'
+" let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . -co --exclude-standard']
+" let g:ctrlp_match_func   = { 'match': 'GoodMatch' }
 
 function! GoodMatch(items, str, limit, mmode, ispath, crfile, regex)
 
@@ -231,7 +221,7 @@ nnoremap <Leader>8 :call <SID>ToggleColorColumn()<CR>
 nnoremap <Leader>r :call ToggleRelativeNumber()<CR>
 
 " Open the buffer explorer
-map <Leader>b :TMiniBufExplorer<cr>
+map <Leader>b :BufExplorer<CR>
 
 " Tabular
 map <Leader>l :Tabularize /
