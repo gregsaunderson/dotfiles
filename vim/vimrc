@@ -32,8 +32,6 @@ set visualbell
 " Allow buffer switching without a write
 set hidden
 
-set novb
-
 " Code folding defaults
 set nofoldenable
 set foldmethod=indent
@@ -46,14 +44,14 @@ set diffopt=filler,context:3,vertical
 
 if has('gui_running')
     set background=dark
-    colorscheme solarized
+    colorscheme hybrid
 else
     set t_Co=256
     set background=dark
     colorscheme lucius
 endif
 
-set guifont=Monaco\ 10
+set guifont=Monaco:h10
 
 " Turn off the icon toolbar
 set guioptions-=T
