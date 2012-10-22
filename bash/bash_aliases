@@ -7,69 +7,15 @@ alias rmsvn="find . -name .svn -exec rm -rf {} \;"
 alias nyan="telnet miku.acm.uiuc.edu"
 
 alias fixfuse="fusermount -zu ~/.gvfs;/usr/lib/gvfs/gvfs-fuse-daemon ~/.gvfs"
+alias mysqlsock="ln -s /var/run/mysqld/mysqld.sock /tmp/mysql.sock"
 
-# Clickatell kak
-alias smbdev="smbclient //dev04-cpt/webdev/ -U gregory.saunderson -W CLICKATELL"
+# Git shortcuts
+alias gst="git status"
+alias gcb="git checkout -b "
+alias gco="git checkout "
+alias gcm="git commit -m "
+alias gdf="git diff "
+alias gbr="git branch -a"
 
-alias sshdev="slogin -i ~/.ssh/clickatell dev04-cpt.internal.clickatell.com -l gregory.saunderson"
-alias sshdev3="slogin -i ~/.ssh/clickatell dev03-cpt.internal.clickatell.com -l gregory.saunderson"
-
-alias sshstage1="slogin -i ~/.ssh/clickatell app1a-cpt.za03.clickatell.com -l gregory.saunderson"
-alias sshstage2="slogin -i ~/.ssh/clickatell app2a-cpt.za03.clickatell.com -l gregory.saunderson"
-alias sshstage3="slogin -i ~/.ssh/clickatell app3a-cpt.za03.clickatell.com -l gregory.saunderson"
-alias sshstage4="slogin -i ~/.ssh/clickatell app4a-cpt.za03.clickatell.com -l gregory.saunderson"
-alias sshstage5="slogin -i ~/.ssh/clickatell app5a-cpt.za03.clickatell.com -l gregory.saunderson"
-alias sshstagemem="slogin -i ~/.ssh/clickatell appmem2-cpt.za03.clickatell.com -l gregory.saunderson"
-alias sshsand="ssh 10.248.3.15 -l gregory.saunderson"
-
-alias sshreports1="ssh reports1a-cpt.za03.clickatell.com -l gregory.saunderson"
-alias sshstagedb1a="ssh db1a-cpt.za03.clickatell.com -l gregory.saunderson"
-alias sshstagedb1b="ssh reports1a-cpt.za03.clickatell.com -l gregory.saunderson"
-
-alias sshreports1a="ssh reports1a-cpt.za01.clickatell.com -l gregory.saunderson"
-alias sshreports1b="ssh reports1b-cpt.za01.clickatell.com -l gregory.saunderson"
-
-alias sshlive1="ssh app1-cpt.za01.clickatell.com -l gregory.saunderson"
-alias sshlive2="ssh app2-cpt.za01.clickatell.com -l gregory.saunderson"
-alias sshlive3="ssh app3-cpt.za01.clickatell.com -l gregory.saunderson"
-alias sshlive3a="ssh app3a-cpt.za01.clickatell.com -l gregory.saunderson"
-alias sshlive3b="ssh app3b-cpt.za01.clickatell.com -l gregory.saunderson"
-alias sshlive4="ssh app4-cpt.za01.clickatell.com -l gregory.saunderson"
-alias sshlive4a="ssh app4a-cpt.za01.clickatell.com -l gregory.saunderson"
-alias sshlive4b="ssh app4b-cpt.za01.clickatell.com -l gregory.saunderson"
-alias sshlive5="ssh app5-cpt.za01.clickatell.com -l gregory.saunderson"
-alias sshliveapp1="ssh appweb1-cpt.za01.clickatell.com -l gregory.saunderson"
-alias sshliveapp1a="ssh appweb1a-cpt.za01.clickatell.com -l gregory.saunderson"
-alias sshliveapp1b="ssh appweb1b-cpt.za01.clickatell.com -l gregory.saunderson"
-alias sshlivemem="slogin -i ~/.ssh/clickatell appmem2-cpt.za01.clickatell.com -l gregory.saunderson"
-
-alias sshsbsajcc="ssh app1-jcc.sbsa01.clickatell.com -l gregory.saunderson"
-alias sshsbsarcc="ssh app1a-rcc.sbsa02.clickatell.com -l gregory.saunderson"
-
-alias sshza05="slogin -i ~/.ssh/clickatell app1a-cpt.za05.clickatell.com -l gregory.saunderson"
-alias sshza06="ssh app1a-cpt.za06.clickatell.com -l gregory.saunderson"
-alias sshlogcron="slogin -i ~/.ssh/clickatell logcron1a-cpt.za01.clickatell.com -l gregory.saunderson"
-alias sshbrochure="ssh www-dev.clickatell.com -l gregory.saunderson"
-
-alias gvimdev="gvim /home/greg/dev/;exit"
-alias gvimtrunk="gvim /home/greg/trunk/;exit"
-alias gvimtags="gvim /home/greg/tags/;exit"
-alias gvimmarketing="gvim /home/greg/marketing/;exit"
-
-# SSHFS aliases
-alias mountdev="sshfs -o idmap=user gregory.saunderson@dev04-cpt:/var/www/subversion/dev ~/sshfs/dev"
-alias mounttrunk="sshfs -o idmap=user gregory.saunderson@dev04-cpt:/var/www/subversion/trunk ~/sshfs/trunk"
-alias mounttags="sshfs -o idmap=user gregory.saunderson@dev04-cpt:/var/www/subversion/tags ~/sshfs/tags"
-alias mountqa="sshfs -o idmap=user gregory.saunderson@dev04-cpt:/var/www/subversion/qa ~/sshfs/qa"
-alias mountmacoute="sshfs -o idmap=user gregory.saunderson@dev04-cpt:/var/www/subversion/macoute ~/sshfs/macoute"
-alias mountmacoute2="sshfs -o idmap=user gregory.saunderson@dev04-cpt:/var/www/subversion/macoute2 ~/sshfs/macoute2"
-alias mountmacoute3="sshfs -o idmap=user gregory.saunderson@dev04-cpt:/var/www/subversion/macoute3 ~/sshfs/macoute3"
-alias mountbrochure="sshfs -o idmap=user gregory.saunderson@www-dev.clickatell.com:/var/www/brochure ~/sshfs/brochure"
-
-alias umountdev="fusermount -u ~/sshfs/dev"
-alias umounttrunk="fusermount -u ~/sshfs/trunk"
-alias umounttags="fusermount -u ~/sshfs/tags"
-alias umountqa="fusermount -u ~/sshfs/qa"
-alias umountmacoute="fusermount -u ~/sshfs/macoute"
-alias umountmacoute2="fusermount -u ~/sshfs/macoute2"
-alias umountbrochure="fusermount -u ~/sshfs/brochure"
+# ShuntYard
+alias prj="cd ~/projects"
