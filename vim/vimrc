@@ -27,7 +27,11 @@ set tabstop=2
 set showmatch
 set matchtime=5
 set scrolloff=5
-set visualbell
+set novisualbell
+if has("macunix")
+  " Disable the annoying beep every time you type a '>' in MacVim
+  set visualbell
+endif
 
 " Allow buffer switching without a write
 set hidden
@@ -51,7 +55,7 @@ else
     colorscheme lucius
 endif
 
-set guifont=Monaco:h10
+set guifont=Source\ Code\ Pro\ 10
 
 " Turn off the icon toolbar
 set guioptions-=T
