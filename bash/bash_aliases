@@ -11,11 +11,14 @@ alias mysqlsock="ln -s /var/run/mysqld/mysqld.sock /tmp/mysql.sock"
 
 # Git shortcuts
 alias gst="git status"
-alias gcb="git checkout -b "
-alias gco="git checkout "
-alias gcm="git commit -m "
-alias gdf="git diff "
-alias gbr="git branch -a"
+alias gd="git diff"
+alias gcm="git commit -a -m"
+alias gco="git checkout"
+alias gbr="git branch"
+alias gbd="git branch -D"
+
+alias rake="bundle exec rake"
 
 # ShuntYard
 alias prj="cd ~/projects"
+alias eltar="tar --strip-components=2 -zxvf "

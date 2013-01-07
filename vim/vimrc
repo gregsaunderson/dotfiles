@@ -48,14 +48,14 @@ set diffopt=filler,context:3,vertical
 
 if has('gui_running')
     set background=dark
-    colorscheme hybrid
+    colorscheme madeofcode
 else
     set t_Co=256
     set background=dark
     colorscheme lucius
 endif
 
-set guifont=Source\ Code\ Pro\ 10
+set guifont=Monaco\ 10
 
 " Turn off the icon toolbar
 set guioptions-=T
@@ -86,7 +86,7 @@ let s:non_printing_chars = 0
 " Powerline
 set laststatus=2 " Always show the statusline
 set encoding=utf-8
-let g:Powerline_symbols = 'unicode'
+let g:Powerline_symbols = 'fancy'
 
 " Syntastic
 set statusline+=%#warningmsg#
@@ -189,6 +189,8 @@ nmap <Leader>a <Esc>:Ack!
 
 " Open NERD Tree
 map <Leader>n :NERDTreeToggle<CR>
+let loaded_nerd_tree=1
+let NERDTreeQuitOnOpen=1
 
 " Toggle the 80 character column marker
 nnoremap <Leader>8 :call <SID>ToggleColorColumn()<CR>
