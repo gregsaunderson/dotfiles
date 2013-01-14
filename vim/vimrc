@@ -86,7 +86,7 @@ let s:non_printing_chars = 0
 " Powerline
 set laststatus=2 " Always show the statusline
 set encoding=utf-8
-let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'unicode'
 
 " Syntastic
 set statusline+=%#warningmsg#
@@ -188,9 +188,10 @@ nmap <F9> mz:execute TabToggle()<CR>'z
 nmap <Leader>a <Esc>:Ack!
 
 " Open NERD Tree
+" map <Leader>n :Explore<CR>
 map <Leader>n :NERDTreeToggle<CR>
-let loaded_nerd_tree=1
-let NERDTreeQuitOnOpen=1
+" let loaded_nerd_tree=1
+" let NERDTreeQuitOnOpen=1
 
 " Toggle the 80 character column marker
 nnoremap <Leader>8 :call <SID>ToggleColorColumn()<CR>
