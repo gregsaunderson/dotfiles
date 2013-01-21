@@ -47,15 +47,15 @@ set nu
 set diffopt=filler,context:3,vertical
 
 if has('gui_running')
-    set background=dark
-    colorscheme madeofcode
+    set background=light
+    colorscheme solarized
 else
     set t_Co=256
     set background=dark
     colorscheme lucius
 endif
 
-set guifont=Monaco\ 10
+set guifont=Cousine\ 10
 
 " Turn off the icon toolbar
 set guioptions-=T
@@ -96,6 +96,9 @@ let g:syntastic_auto_jump=1
 
 " CtrlP - Fuzzy finder.
 set runtimepath^=~/.vim/bundle/ctrlp
+
+" Set EasyLodge scorecards to be highlighted as Ruby
+au BufRead,BufNewFile *.card set filetype=ruby
 
 " FUNCTIONS ====================================================================
 " Allow toggling between 4 and 2 tabstops. Thank you, Ruby.
@@ -190,8 +193,8 @@ nmap <Leader>a <Esc>:Ack!
 " Open NERD Tree
 " map <Leader>n :Explore<CR>
 map <Leader>n :NERDTreeToggle<CR>
-" let loaded_nerd_tree=1
-" let NERDTreeQuitOnOpen=1
+let loaded_nerd_tree=1
+let NERDTreeQuitOnOpen=1
 
 " Toggle the 80 character column marker
 nnoremap <Leader>8 :call <SID>ToggleColorColumn()<CR>
