@@ -1,3 +1,4 @@
+alias ll="ls -lash"
 alias rg="grep --exclude=\*.svn\* -Rn"
 alias ack="ack-grep"
 alias tm="tmux"

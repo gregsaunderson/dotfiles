@@ -110,14 +110,14 @@ fi
 
 set -o vi
 
-[[ -s "/home/greg/.rvm/scripts/rvm" ]] && source "/home/greg/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # TMUX: Make sure we're using a 256 color terminal!
 [ -z "$TMUX" ] && export TERM=xterm-256color
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+

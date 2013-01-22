@@ -55,7 +55,11 @@ else
     colorscheme lucius
 endif
 
-set guifont=Cousine\ 10
+if has("macunix")
+  set guifont=Cousine:h11
+else
+  set guifont=Cousine\ 10
+endif
 
 " Turn off the icon toolbar
 set guioptions-=T
@@ -193,8 +197,6 @@ nmap <Leader>a <Esc>:Ack!
 " Open NERD Tree
 " map <Leader>n :Explore<CR>
 map <Leader>n :NERDTreeToggle<CR>
-let loaded_nerd_tree=1
-let NERDTreeQuitOnOpen=1
 
 " Toggle the 80 character column marker
 nnoremap <Leader>8 :call <SID>ToggleColorColumn()<CR>
