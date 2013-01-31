@@ -214,3 +214,6 @@ map <Leader>l :Tabularize /
 map gb :bnext<CR>
 map gB :bprev<CR>
 
+" Better line insertions
+nnoremap <leader>o :<C-u>exe 'normal m`'.v:count1.'o<C-v><C-[>``'<CR>
+nnoremap <leader>O :<C-u>exe 'normal m`'.v:count1.'O<C-v><C-[>``'<CR>
