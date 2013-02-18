@@ -56,6 +56,7 @@ else
 fi
 unset color_prompt force_color_prompt
 
+
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
@@ -103,21 +104,34 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 function parse_git_branch {
-        git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \[\1\]/'
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
 function proml {
-  local        BLUE="\[\033[0;34m\]"
-# OPTIONAL - if you want to use any of these other colors:
-  local         RED="\[\033[0;31m\]"
-  local   LIGHT_RED="\[\033[1;31m\]"
-  local       GREEN="\[\033[0;32m\]"
-  local LIGHT_GREEN="\[\033[1;32m\]"
-  local       WHITE="\[\033[1;37m\]"
-  local  LIGHT_GRAY="\[\033[0;37m\]"
-# END OPTIONAL
-  local     DEFAULT="\[\033[0m\]"
-  PS1="\u@\h: \w\a$BLUE\$(parse_git_branch) $DEFAULT\$ "
+  # ANSI color codes
+  local DEFAULT="\[\033[0m\]" # reset
+  local HC="\[\033[1m\]"      # hicolor
+  local UL="\[\033[4m\]"      # underline
+  local INV="\[\033[7m\]"     # inverse background and foreground
+
+  local FBLK="\[\033[30m\]"   # foreground black
+  local FRED="\[\033[31m\]"   # foreground red
+  local FGRN="\[\033[32m\]"   # foreground green
+  local FYEL="\[\033[33m\]"   # foreground yellow
+  local FBLE="\[\033[34m\]"   # foreground blue
+  local FMAG="\[\033[35m\]"   # foreground magenta
+  local FCYN="\[\033[36m\]"   # foreground cyan
+  local FWHT="\[\033[37m\]"   # foreground white
+
+  local BBLK="\[\033[40m\]"   # background black
+  local BRED="\[\033[41m\]"   # background red
+  local BGRN="\[\033[42m\]"   # background green
+  local BYEL="\[\033[43m\]"   # background yellow
+  local BBLE="\[\033[44m\]"   # background blue
+  local BMAG="\[\033[45m\]"   # background magenta
+  local BCYN="\[\033[46m\]"   # background cyan
+  local BWHT="\[\033[47m\]"   # background white
+  PS1="${debian_chroot:+($debian_chroot)}$BCYN$FWHT\u@\h:$BGRN\w $BBLE \$(parse_git_branch) $BRED ~ $DEFAULT "
 }
 
 proml

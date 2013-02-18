@@ -23,3 +23,4 @@ alias rake="bundle exec rake"
 # ShuntYard
 alias prj="cd ~/projects"
 alias eltar="tar --strip-components=2 -zxvf "
+alias els3ls="s3cmd ls s3://backup.easylodge.com.au/easylodge/"
