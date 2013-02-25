@@ -49,10 +49,12 @@ set diffopt=filler,context:3,vertical
 if has('gui_running')
     set background=light
     colorscheme solarized
+    let g:Powerline_symbols = 'fancy'
 else
     set t_Co=256
     set background=dark
-    colorscheme lucius
+    colorscheme impact
+    let g:Powerline_symbols = 'compatible'
 endif
 
 if has("macunix")
