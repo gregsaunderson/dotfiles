@@ -46,6 +46,11 @@ if has('gui_running')
     set background=light
     colorscheme solarized
     let g:Powerline_symbols = 'fancy'
+
+    " toggle colored right border after 80 chars
+    set colorcolumn=81
+    let s:color_column_old = 0
+
 else
     set t_Co=256
     set background=dark
@@ -77,10 +82,6 @@ set mousehide
 
 " Display invisible characters in :set list!
 :set listchars=tab:»·,trail:·
-
-" toggle colored right border after 80 chars
-set colorcolumn=81
-let s:color_column_old = 0
 
 " Setup for ack plugin
 if has("macunix")
