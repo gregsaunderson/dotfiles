@@ -28,10 +28,6 @@ set showmatch
 set matchtime=5
 set scrolloff=5
 set novisualbell
-if has("macunix")
-  " Disable the annoying beep every time you type a '>' in MacVim
-  set visualbell
-endif
 
 " Allow buffer switching without a write
 set hidden
@@ -59,6 +55,8 @@ endif
 
 if has("macunix")
   set guifont=Cousine:h11
+  " Disable the annoying beep every time you type a '>' in MacVim
+  set visualbell
 else
   set guifont=Cousine\ 10
 endif
@@ -85,7 +83,11 @@ set colorcolumn=81
 let s:color_column_old = 0
 
 " Setup for ack plugin
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+if has("macunix")
+  let g:ackprg="ack -H --nocolor --nogroup --column"
+else
+  let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+endif
 
 " Tracking variable so we can tell the user whether we're seeing non-printing
 " characters
