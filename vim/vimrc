@@ -28,10 +28,6 @@ set showmatch
 set matchtime=5
 set scrolloff=5
 set novisualbell
-if has("macunix")
-  " Disable the annoying beep every time you type a '>' in MacVim
-  set visualbell
-endif
 
 " Allow buffer switching without a write
 set hidden
@@ -40,6 +36,8 @@ set hidden
 set nofoldenable
 set foldmethod=indent
 set foldnestmax=10
+
+set wildmode=longest:list,full
 
 " Relative line numbering
 set nu
@@ -53,12 +51,14 @@ if has('gui_running')
 else
     set t_Co=256
     set background=dark
-    colorscheme impact
+    colorscheme zenburn
     let g:Powerline_symbols = 'compatible'
 endif
 
 if has("macunix")
   set guifont=Cousine:h11
+  " Disable the annoying beep every time you type a '>' in MacVim
+  set visualbell
 else
   set guifont=Cousine\ 10
 endif
@@ -169,6 +169,7 @@ map <F4> :execute ToggleSetList()<CR>
 
 " TagBar
 nnoremap <silent> <F8> :TagbarToggle<CR>
+let g:tagbar_left = 1
 
 " Disable arrow keys so I can use the proper movement keys
 nnoremap <up> <nop>
@@ -201,6 +202,9 @@ nmap <Leader>a <Esc>:Ack!
 " Open NERD Tree
 " map <Leader>n :Explore<CR>
 map <Leader>n :NERDTreeToggle<CR>
+let g:NERDTreeWinPos='right'
+let g:NERDTreeWinSize=50
+let g:NERDTreeQuitOnOpen=1
 
 " Toggle the 80 character column marker
 nnoremap <Leader>8 :call <SID>ToggleColorColumn()<CR>
@@ -208,8 +212,8 @@ nnoremap <Leader>8 :call <SID>ToggleColorColumn()<CR>
 " Toggle between relative and absolute line numbering
 nnoremap <Leader>r :call ToggleRelativeNumber()<CR>
 
-" Open the buffer explorer
-map <Leader>b :BufExplorer<CR>
+" list currently open buffers
+map <Leader>b :ls<CR>
 
 " Tabular
 map <Leader>l :Tabularize /

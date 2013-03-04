@@ -19,6 +19,7 @@ alias gbr="git branch"
 alias gbd="git branch -D"
 
 alias rake="bundle exec rake"
+alias be="bundle exec"
 
 # ShuntYard
 alias prj="cd ~/projects"
