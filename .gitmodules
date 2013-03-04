@@ -43,3 +43,13 @@
 [submodule "vim/bundle/coffeescript"]
 	path = vim/bundle/coffeescript
 	url = git://github.com/kchmck/vim-coffee-script.git
+[submodule "vim/bundle/fugitive"]
+	path = vim/bundle/fugitive
+  url = git://github.com/tpope/vim-fugitive.git
+[submodule "vim/bundle/vim-indent-guides"]
+	path = vim/bundle/vim-indent-guides
+  url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "vim/bundle/csapprox"]
+	path = vim/bundle/csapprox
+  url = git://github.com/vim-scripts/CSApprox.git
+
