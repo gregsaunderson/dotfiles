@@ -109,6 +109,8 @@ let g:syntastic_auto_jump=1
 
 " CtrlP - Fuzzy finder.
 set runtimepath^=~/.vim/bundle/ctrlp
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>t :CtrlPBufTag<CR>
 
 " Set EasyLodge scorecards to be highlighted as Ruby
 au BufRead,BufNewFile *.card set filetype=ruby
@@ -216,9 +218,6 @@ nnoremap <Leader>8 :call <SID>ToggleColorColumn()<CR>
 
 " Toggle between relative and absolute line numbering
 nnoremap <Leader>r :call ToggleRelativeNumber()<CR>
-
-" list currently open buffers
-map <Leader>b :ls<CR>
 
 " Tabular
 map <Leader>l :Tabularize /

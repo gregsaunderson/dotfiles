@@ -37,9 +37,6 @@
 [submodule "vim/bundle/vim-rails"]
 	path = vim/bundle/vim-rails
 	url = git://github.com/tpope/vim-rails.git
-[submodule "vim/bundle/lustyexplorer"]
-	path = vim/bundle/lustyexplorer
-	url = git://github.com/vim-scripts/LustyExplorer.git
 [submodule "vim/bundle/coffeescript"]
 	path = vim/bundle/coffeescript
 	url = git://github.com/kchmck/vim-coffee-script.git
