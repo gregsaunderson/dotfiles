@@ -136,12 +136,21 @@ function proml {
 
 proml
 
+# Command line search! Thanks to http://www.if-not-true-then-false.com/2009/google-search-from-linux-and-unix-command-line/
+function encode() { echo -n $@ | perl -pe's/([^-_.~A-Za-z0-9])/sprintf("%%%02X", ord($1))/seg'; }
+function google() { chromium-browser http://www.google.com/search?hl=en#q="`encode $@`" ;}
+function yahoo() { chromium-browser http://search.yahoo.com/search?p="`encode $@`" ;}
+function bing() { chromium-browser http://www.bing.com/search?q="`encode $@`" ;}
+function amazon() { chromium-browser http://www.amazon.com/s/ref=nb_ss?field-keywords="`encode $@`" ;}
+function wiki() { chromium-browser http://en.wikipedia.org/w/index.php?search="`encode $@`" ;}
+
 # ADDED FOR RVM
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+# Command line Vim mode
 set -o vi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
@@ -150,7 +159,8 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # TMUX: Make sure we're using a 256 color terminal!
 [ -z "$TMUX" ] && export TERM=xterm-256color
 
-JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk
+# http://serverfault.com/questions/143786/how-to-determine-java-home-on-debian-ubuntu. Determines location of JRE
+#JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
