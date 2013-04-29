@@ -56,7 +56,7 @@ if has('gui_running')
 else
     set t_Co=256
     set background=dark
-    colorscheme zenburn
+    colorscheme lucius
     let g:Powerline_symbols = 'compatible'
 endif
 
@@ -82,6 +82,11 @@ set smartcase  " override ignorecase when search pattern as an uppercase charact
 set cursorline
 set mousehide
 
+" Don't add the comment prefix when I hit o/O on a comment line.
+set formatoptions-=o
+" Where it makes sense, remove a comment leader when joining lines
+set formatoptions+=j 
+
 " Display invisible characters in :set list!
 :set listchars=tab:»·,trail:·
 
@@ -99,13 +104,12 @@ let s:non_printing_chars = 0
 " Powerline
 set laststatus=2 " Always show the statusline
 set encoding=utf-8
-let g:Powerline_symbols = 'unicode'
 
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_auto_jump=1
+" Syntastic --- REMOVED DUE TO HORRENDOUS LAG WHEN USING TMUX AND HAML
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_auto_jump=1
 
 " CtrlP - Fuzzy finder.
 set runtimepath^=~/.vim/bundle/ctrlp
@@ -162,6 +166,16 @@ function! ToggleSetList()
 endfunction
 
 " KEYBINDINGS ==================================================================
+" Disable Ex mode
+map Q <Nop>
+" Disable K looking stuff up
+map K <Nop>
+
+" (Hopefully) removes the delay when hitting esc in insert mode
+set noesckeys
+set ttimeout
+set ttimeoutlen=1
+
 " Time and date insertion
 :iab dts <C-R>=strftime("%a, %d %b %Y %H:%M:%S %z")<CR>
 

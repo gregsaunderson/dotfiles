@@ -131,7 +131,7 @@ function proml {
   local BMAG="\[\033[45m\]"   # background magenta
   local BCYN="\[\033[46m\]"   # background cyan
   local BWHT="\[\033[47m\]"   # background white
-  PS1="${debian_chroot:+($debian_chroot)}$BCYN$FWHT\u@\h:$BGRN\w $BBLE \$(parse_git_branch) $BRED ~ $DEFAULT "
+  PS1="${debian_chroot:+($debian_chroot)}$BCYN$FWHT\u@\h:$BGRN\w $BBLE \$(parse_git_branch) $BRED 🐮  $DEFAULT "
 }
 
 proml
