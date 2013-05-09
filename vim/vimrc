@@ -105,7 +105,7 @@ let s:non_printing_chars = 0
 set laststatus=2 " Always show the statusline
 set encoding=utf-8
 
-" Syntastic --- REMOVED DUE TO HORRENDOUS LAG WHEN USING TMUX AND HAML
+" Syntastic -- Removed due to horrific lag in running syntax checking in TMUX
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
@@ -243,3 +243,9 @@ map gB :bprev<CR>
 " Better line insertions
 nnoremap <leader>o :<C-u>exe 'normal m`'.v:count1.'o<C-v><C-[>``'<CR>
 nnoremap <leader>O :<C-u>exe 'normal m`'.v:count1.'O<C-v><C-[>``'<CR>
+
+" Signigicantly speeds up opening a .rb file for the first time - Vim parsing
+" the language syntax file was making me unhappy
+if !empty($MY_RUBY_HOME)
+  let g:ruby_path = join(split(glob($MY_RUBY_HOME.'/lib/ruby/*.*')."\n".glob($MY_RUBY_HOME.'/lib/rubysite_ruby/*'),"\n"),',')
+endif

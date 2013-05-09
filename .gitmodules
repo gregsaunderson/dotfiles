@@ -46,4 +46,3 @@
 [submodule "vim/bundle/csapprox"]
 	path = vim/bundle/csapprox
 	url = git://github.com/vim-scripts/CSApprox.git
-
