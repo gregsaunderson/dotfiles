@@ -1,0 +1,31 @@
+alias ls='ls --color=auto'
+alias ll="ls -lash"
+alias rg="grep --exclude=\*.svn\* -Rn"
+alias ack="ack-grep"
+alias tm="tmux"
+alias tmdev="tmux attach -t dev"
+alias tmbro="tmux attach -t brochure"
+alias rmsvn="find . -name .svn -exec rm -rf {} \;"
+alias nyan="telnet miku.acm.uiuc.edu"
+
+alias fixfuse="fusermount -zu ~/.gvfs;/usr/lib/gvfs/gvfs-fuse-daemon ~/.gvfs"
+alias mysqlsock="ln -s /var/run/mysqld/mysqld.sock /tmp/mysql.sock"
+
+# Git shortcuts
+alias gst="git status"
+alias gd="git diff"
+alias gcm="git commit -a -m"
+alias gco="git checkout"
+alias gbr="git branch"
+alias gbd="git branch -D"
+
+alias rake="bundle exec rake"
+alias be="bundle exec"
+
+# ShuntYard
+alias prj="cd ~/projects"
+alias eltar="tar --strip-components=2 -zxvf "
+alias els3ls="s3cmd ls s3://backup.easylodge.com.au/easylodge/"
+
+alias hdmisound="speaker-test -c 2 -r 48000 -D hw:0,3"
+alias arcmouse="xset m 1 1"

@@ -1,0 +1,20 @@
+# Command line search! Thanks to http://www.if-not-true-then-false.com/2009/google-search-from-linux-and-unix-command-line/
+function encode() { echo -n $@ | perl -pe's/([^-_.~A-Za-z0-9])/sprintf("%%%02X", ord($1))/seg'; }
+function google() { chromium-browser http://www.google.com/search?hl=en#q="`encode $@`" ;}
+function yahoo() { chromium-browser http://search.yahoo.com/search?p="`encode $@`" ;}
+function bing() { chromium-browser http://www.bing.com/search?q="`encode $@`" ;}
+function amazon() { chromium-browser http://www.amazon.com/s/ref=nb_ss?field-keywords="`encode $@`" ;}
+function wiki() { chromium-browser http://en.wikipedia.org/w/index.php?search="`encode $@`" ;}
+
+autoload -U colors && colors
+PS1="%{$fg[white]%}%{$bg[cyan]%}%n@%m%{$bg[green]%} %~ %{$bg[red]%} 🐮  %{$reset_color%} ~ "
+
+if [ -f ~/.zsh/scripts/zshalias ]; then
+  source ~/.zsh/scripts/zshalias
+fi
+
+if [ -f ~/.zsh/scripts/git_prompt ]; then
+  source ~/.zsh/scripts/git_prompt
+fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
