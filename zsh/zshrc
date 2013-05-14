@@ -6,6 +6,8 @@ function bing() { chromium-browser http://www.bing.com/search?q="`encode $@`" ;}
 function amazon() { chromium-browser http://www.amazon.com/s/ref=nb_ss?field-keywords="`encode $@`" ;}
 function wiki() { chromium-browser http://en.wikipedia.org/w/index.php?search="`encode $@`" ;}
 
+export TERM=screen-256color
+#export TERM=xterm-256color
 autoload -U colors && colors
 PS1="%{$fg[white]%}%{$bg[cyan]%}%n@%m%{$bg[green]%} %~ %{$bg[red]%} 🐮  %{$reset_color%} ~ "
 
@@ -17,4 +19,5 @@ if [ -f ~/.zsh/scripts/git_prompt ]; then
   source ~/.zsh/scripts/git_prompt
 fi
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

@@ -1,4 +1,5 @@
 alias ls='ls --color=auto'
+alias grep='grep --color=auto'
 alias ll="ls -lash"
 alias rg="grep --exclude=\*.svn\* -Rn"
 alias ack="ack-grep"
