@@ -9,7 +9,7 @@ function wiki() { chromium-browser http://en.wikipedia.org/w/index.php?search="`
 export TERM=screen-256color
 #export TERM=xterm-256color
 autoload -U colors && colors
-PS1="%{$fg[white]%}%{$bg[cyan]%}%n@%m%{$bg[green]%} %~ %{$bg[red]%} 🐮  %{$reset_color%} ~ "
+PS1="%{$fg[cyan]%}%n@%m%{$fg[green]%} %~ %{$reset_color%} ~ "
 
 if [ -f ~/.zsh/scripts/zshalias ]; then
   source ~/.zsh/scripts/zshalias

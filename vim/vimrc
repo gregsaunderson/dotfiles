@@ -85,7 +85,7 @@ set mousehide
 " Don't add the comment prefix when I hit o/O on a comment line.
 set formatoptions-=o
 " Where it makes sense, remove a comment leader when joining lines
-set formatoptions+=j 
+" set formatoptions+=j 
 
 " Display invisible characters in :set list!
 :set listchars=tab:»·,trail:·
