@@ -46,8 +46,8 @@ set diffopt=filler,context:3,vertical
 
 if has('gui_running')
     set background=light
-    colorscheme solarized
-    let g:Powerline_symbols = 'fancy'
+    colorscheme hemisu
+    let g:Powerline_symbols = 'compatible'
 
     " toggle colored right border after 80 chars
     set colorcolumn=81
@@ -56,7 +56,7 @@ if has('gui_running')
 else
     set t_Co=256
     set background=dark
-    colorscheme wombat
+    colorscheme luna-term
     let g:Powerline_symbols = 'compatible'
 endif
 
@@ -91,11 +91,7 @@ set formatoptions-=o
 :set listchars=tab:»·,trail:·
 
 " Setup for ack plugin
-if has("macunix")
-  let g:ackprg="ack -H --nocolor --nogroup --column"
-else
-  let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-endif
+let g:ackprg="ack -H --nocolor --nogroup --column"
 
 " Tracking variable so we can tell the user whether we're seeing non-printing
 " characters
