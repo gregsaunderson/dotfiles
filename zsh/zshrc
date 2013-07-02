@@ -22,4 +22,5 @@ fi
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH=$HOME/Source/androidSDK/platform-tools:$HOME/.rbenv/shims:/usr/local/bin:/usr/local/git/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+PATH=/Applications/Postgres.app/Contents/MacOS/bin:$HOME/Source/androidSDK/platform-tools:$HOME/.rbenv/shims:/usr/local/bin:/usr/local/git/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+

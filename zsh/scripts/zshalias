@@ -7,6 +7,7 @@ alias tmdev="tmux attach -t dev"
 alias tmbro="tmux attach -t brochure"
 alias rmsvn="find . -name .svn -exec rm -rf {} \;"
 alias nyan="telnet miku.acm.uiuc.edu"
+alias psg="ps aux | grep "
 
 alias fixfuse="fusermount -zu ~/.gvfs;/usr/lib/gvfs/gvfs-fuse-daemon ~/.gvfs"
 alias mysqlsock="ln -s /var/run/mysqld/mysqld.sock /tmp/mysql.sock"
