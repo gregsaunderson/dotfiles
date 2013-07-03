@@ -49,6 +49,6 @@
 [submodule "vim/bundle/vim-slim"]
 	path = vim/bundle/vim-slim
 	url = git@github.com:slim-template/vim-slim.git
-[submodule "vim/bundle/airline"]
-	path = vim/bundle/airline
-	url = git@github.com:bling/vim-airline.git
+[submodule "vim/bundle/powerline"]
+	path = vim/bundle/powerline
+	url = git@github.com:Lokaltog/powerline.git
