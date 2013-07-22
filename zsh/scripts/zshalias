@@ -12,6 +12,7 @@ alias psg="ps aux | grep "
 alias fixfuse="fusermount -zu ~/.gvfs;/usr/lib/gvfs/gvfs-fuse-daemon ~/.gvfs"
 alias mysqlsock="ln -s /var/run/mysqld/mysqld.sock /tmp/mysql.sock"
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias pgstop="pg_ctl -D /usr/local/var/postgres stop"
 
 
 # Git shortcuts
