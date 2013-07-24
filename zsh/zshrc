@@ -25,3 +25,4 @@ PATH=$HOME/Source/androidSDK/platform-tools:/usr/local/bin:/usr/local/git/bin:/u
 export PGHOST=localhost
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm

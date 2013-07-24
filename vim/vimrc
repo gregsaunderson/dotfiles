@@ -115,6 +115,9 @@ nnoremap <leader>t :CtrlPBufTag<CR>
 " Set EasyLodge scorecards to be highlighted as Ruby
 au BufRead,BufNewFile *.card set filetype=ruby
 
+" Let's try and get RVM and tmux to play nicely
+set shell=/bin/zsh
+
 " FUNCTIONS ====================================================================
 " Allow toggling between 4 and 2 tabstops. Thank you, Ruby.
 function! TabToggle()
