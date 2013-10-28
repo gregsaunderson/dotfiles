@@ -28,3 +28,6 @@ alias be="bundle exec"
 
 alias hdmisound="speaker-test -c 2 -r 48000 -D hw:0,3"
 alias arcmouse="xset m 1 1"
+
+# Boot thin in SSL mode
+alias thinssl="thin start -p 3001 --ssl --ssl-verify --ssl-key-file ~/.ssl/server.key --ssl-cert-file ~/.ssl/server.crt"
