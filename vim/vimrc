@@ -188,8 +188,8 @@ map <F3> :let @/ = ""<CR>
 map <F4> :execute ToggleSetList()<CR>
 
 " TagBar
-nnoremap <silent> <F8> :TagbarToggle<CR>
-let g:tagbar_left = 1
+" nnoremap <silent> <F8> :TagbarToggle<CR>
+" let g:tagbar_left = 1
 
 " Disable arrow keys so I can use the proper movement keys
 nnoremap <up> <nop>
